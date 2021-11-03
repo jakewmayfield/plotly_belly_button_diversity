@@ -9,6 +9,7 @@ function metadata(sample) {
     // Filter the data
     var buildingArray = metadata.filter(x => x.id == sample);
     var result = buildingArray[0];
+    console.log(result);
     // Use d3 to select the required panel
     var panelData = d3.select("#sample-metadata");
 
@@ -27,6 +28,7 @@ function charts(sample) {
       var sampleData = data.samples;
       var buildingArray = sampleData.filter(x => x.id == sample);
       var result = buildingArray[0];
+      console.log(result);
   
       var otu_ids = result.otu_ids;
       var otu_labels = result.otu_labels;
@@ -68,7 +70,7 @@ function charts(sample) {
   
       var chartLayout = {
         title: "Top 10 Bacteria Cultures Found",
-        margin: { t: 30, l: 150 }
+        automargin: true
       };
   
       Plotly.newPlot("bar", barData, chartLayout);
